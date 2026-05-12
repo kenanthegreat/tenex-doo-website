@@ -83,13 +83,13 @@ export function EquipmentSection() {
   }, [activeIndex, isHovering])
 
   return (
-    <section ref={sectionRef} id="oprema" className="relative py-14 md:py-20 overflow-hidden">
+    <section ref={sectionRef} id="oprema" className="relative py-12 md:py-20 overflow-hidden">
       <div className="absolute inset-0 bg-background" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div
           className={cn(
-            "flex flex-col md:flex-row md:items-end justify-between mb-5 md:mb-6 transition-all duration-700",
+            "flex flex-col md:flex-row md:items-end justify-between mb-6 transition-all duration-700",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
         >
@@ -107,7 +107,7 @@ export function EquipmentSection() {
             </p>
           </div>
 
-          <div className="flex items-center gap-4 mt-5 md:mt-0">
+          <div className="flex items-center justify-between gap-4 mt-5 md:mt-0">
             <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 text-sm font-mono bg-background/80">
               <span className="text-foreground font-semibold text-lg">{String(activeIndex + 1).padStart(2, "0")}</span>
               <span className="text-muted-foreground">/</span>
@@ -139,7 +139,7 @@ export function EquipmentSection() {
         </div>
 
         <div className="relative" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-          <div className="relative rounded-2xl overflow-hidden aspect-[16/9] md:aspect-[21/9] border border-border/50 bg-card">
+          <div className="relative rounded-3xl overflow-hidden aspect-[4/5] sm:aspect-[16/9] md:aspect-[21/9] border border-border/50 bg-card">
             {equipment.map((item, index) => (
               <div
                 key={item.name}
@@ -153,32 +153,32 @@ export function EquipmentSection() {
               </div>
             ))}
 
-            <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">
+            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
               <div className="max-w-2xl">
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary/60 text-foreground text-xs font-semibold rounded-full mb-3">
                   <Zap className="w-4 h-4" />
                   {equipment[activeIndex].type}
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 tracking-tight">
+                <h3 className="text-[1.85rem] md:text-3xl font-bold text-foreground mb-2 tracking-tight leading-tight">
                   {equipment[activeIndex].name}
                 </h3>
 
-                <p className="text-sm md:text-base text-muted-foreground mb-2 max-w-md">
+                <p className="text-sm md:text-base text-muted-foreground mb-3 max-w-md leading-relaxed">
                   {equipment[activeIndex].description}
                 </p>
 
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-3 gap-2 md:gap-3">
                   {Object.entries(equipment[activeIndex].specs).map(([key, value], i) => (
                     <div
                       key={key}
-                      className="p-2 rounded-xl border border-border/50 bg-background/80 transition-all duration-300"
+                      className="min-w-0 p-2.5 rounded-2xl border border-border/50 bg-background/85 backdrop-blur transition-all duration-300"
                     >
-                      <div className="flex items-center gap-2 mb-1.5">
+                      <div className="flex items-center gap-1.5 mb-1.5">
                         {i === 0 && <Weight className="w-4 h-4 text-foreground/70" />}
                         {i === 1 && <Zap className="w-4 h-4 text-foreground/70" />}
                         {i === 2 && <Gauge className="w-4 h-4 text-foreground/70" />}
-                        <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-mono">
+                        <span className="text-[9px] md:text-[10px] text-muted-foreground uppercase tracking-wider font-mono">
                           {key === "weight"
                             ? "TEŽINA"
                             : key === "power"
@@ -192,7 +192,7 @@ export function EquipmentSection() {
                                     : key.toUpperCase()}
                         </span>
                       </div>
-                      <div className="text-lg font-bold text-foreground">{value}</div>
+                      <div className="text-base md:text-lg font-bold text-foreground leading-tight break-words">{value}</div>
                     </div>
                   ))}
                 </div>
@@ -205,7 +205,7 @@ export function EquipmentSection() {
               <button
                 key={index}
                 onClick={() => scrollTo(index)}
-                className="group relative h-6 min-w-[40px] rounded-full overflow-hidden transition-all duration-300"
+                className="group relative h-2.5 min-w-[34px] rounded-full overflow-hidden transition-all duration-300"
                 style={{ width: activeIndex === index ? "84px" : "40px" }}
               >
                 <div className="absolute inset-0 bg-muted-foreground/20 rounded-full" />

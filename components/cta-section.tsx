@@ -23,7 +23,7 @@ export function CTASection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative py-14 md:py-20 overflow-hidden">
+    <section ref={sectionRef} className="relative py-12 md:py-20 overflow-hidden">
       <div className="absolute inset-0 bg-background" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
@@ -33,28 +33,28 @@ export function CTASection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
         >
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border/50 bg-background/80 mb-6">
+          <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-border/50 bg-background/80 mb-5 sm:mb-6">
             <Zap className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-foreground/90">Spremni za novi projekat?</span>
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-3">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-3 leading-tight">
             Započnimo zajedno
           </h2>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed">
             Kontaktirajte nas danas i dobijte <span className="text-primary font-semibold">tačnu procjenu</span> za vaš
             projekat. Jasan plan i dogovoreni rokovi prije početka.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-8">
             <MagneticButton>
               <Button
                 size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-12 h-14 text-base font-semibold"
+                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 sm:px-12 h-14 text-base font-semibold"
                 asChild
               >
-                <a href="#kontakt" className="flex items-center">
+                <a href="#kontakt" className="flex items-center justify-center">
                   {siteConfig.primaryCtaText}
                   <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-2" />
                 </a>
@@ -64,10 +64,10 @@ export function CTASection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-full px-12 h-14 text-base font-semibold border-border/60 bg-transparent hover:bg-secondary/40"
+                className="w-full sm:w-auto rounded-full px-8 sm:px-12 h-14 text-base font-semibold border-border/60 bg-transparent hover:bg-secondary/40"
                 asChild
               >
-                <a href={siteConfig.contact.phone.href} className="flex items-center">
+                <a href={siteConfig.contact.phone.href} className="flex items-center justify-center">
                   <Phone className="w-5 h-5 mr-2" />
                   {siteConfig.contact.phone.value}
                 </a>
@@ -75,7 +75,7 @@ export function CTASection() {
             </MagneticButton>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-3 gap-3 md:gap-5">
             {[
               { icon: Phone, label: "Telefon", value: siteConfig.contact.phone.value, subtext: siteConfig.contact.hours },
               { icon: Mail, label: "Email", value: siteConfig.contact.email.value, subtext: "Odgovaramo u 24h" },
@@ -84,7 +84,7 @@ export function CTASection() {
               <div
                 key={item.label}
                 className={cn(
-                  "p-6 rounded-2xl border border-border/50 bg-card transition-all duration-500",
+                  "p-5 md:p-6 rounded-3xl border border-border/50 bg-card transition-all duration-500",
                   isVisible && "animate-slide-up",
                 )}
                 style={{ animationDelay: `${index * 150 + 300}ms` }}

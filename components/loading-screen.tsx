@@ -151,17 +151,14 @@ export function LoadingScreen() {
           ) : null}
 
           {/* Main logo */}
-          <div
+          <img
+            src="/2.5dlogo.png"
+            alt="TENEX logo"
             className={cn(
-              "w-36 h-36 rounded-2xl border border-border/50 bg-background/80 overflow-hidden transition-all duration-500",
+              "h-28 w-auto object-contain transition-all duration-500",
               phase === "revealing" && "scale-110",
             )}
-          >
-            <img src="/2.5dlogo.png" alt="TENEX logo" className="w-full h-full object-cover" />
-          </div>
-
-          {/* Corner accent */}
-          <div className={cn("absolute -bottom-2 -right-2 w-8 h-8 bg-foreground rounded-lg", perfTier === "high" && !reduceMotion && "animate-float")} />
+          />
 
           {/* Floating particles */}
           {perfTier === "high" && !reduceMotion

@@ -71,7 +71,11 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section ref={heroRef} id="pocetna" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      ref={heroRef}
+      id="pocetna"
+      className="relative min-h-[100svh] flex items-end md:items-center justify-center overflow-hidden pb-32 md:pb-0"
+    >
       <div
         ref={bgRef}
         className="absolute inset-0 transition-transform duration-1000 ease-out"
@@ -95,18 +99,18 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/40 to-background" />
       <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-background/70" />
 
-      <div className="relative z-10 container mx-auto px-4 md:px-8 pt-24">
+      <div className="relative z-10 container mx-auto px-4 md:px-8 pt-28 pb-4 md:pt-24 md:pb-0">
         <div className="max-w-5xl">
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border/50 bg-background/80 mb-6">
+          <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-border/50 bg-background/80 mb-5 sm:mb-6">
             <Zap className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-foreground/90">Godina osnivanja {siteConfig.foundedYear}</span>
           </div>
 
-          <h1 className="mb-5 text-5xl md:text-7xl lg:text-[6.5rem] font-bold tracking-tight text-foreground leading-[1.1]">
+          <h1 className="mb-5 text-[2.85rem] sm:text-5xl md:text-7xl lg:text-[6.5rem] font-bold tracking-tight text-foreground leading-[1.05] md:leading-[1.1]">
             {"Iskustvo koje traje od 1993."}
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-9 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-7 sm:mb-9 leading-relaxed">
             {"Jasna procjena, dogovoreni rokovi i sigurna izvedba bez skrivenih troškova."}
             <span className="text-primary font-semibold">{" Iskopi, prevozi, rušenja"}</span>
             {" i niskogradnja u Sarajevu i šire, uz tim koji preuzima odgovornost od početka do predaje terena."}
@@ -117,10 +121,10 @@ export function HeroSection() {
             <MagneticButton>
               <Button
                 size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-14 text-base font-semibold"
+                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-14 text-base font-semibold"
                 asChild
               >
-                <a href="#kontakt" className="flex items-center">
+                <a href="#kontakt" className="flex items-center justify-center">
                   {siteConfig.primaryCtaText}
                   <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                 </a>
@@ -130,10 +134,10 @@ export function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-full px-8 h-14 text-base font-semibold border-border/60 hover:bg-secondary/40 bg-transparent"
+                className="w-full sm:w-auto rounded-full px-8 h-14 text-base font-semibold border-border/60 hover:bg-secondary/40 bg-background/20 backdrop-blur"
                 asChild
               >
-                <a href="#projekti" className="flex items-center">
+                <a href="#projekti" className="flex items-center justify-center">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-2">
                     <Play className="w-4 h-4 text-primary ml-0.5" />
                   </div>
@@ -145,7 +149,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3">
         <span className="text-[10px] text-muted-foreground uppercase tracking-[0.3em] font-medium font-mono">
           {"Otkrijte više"}
         </span>

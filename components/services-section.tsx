@@ -99,13 +99,13 @@ export function ServicesSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="usluge" className="relative py-14 md:py-20 overflow-hidden">
+    <section ref={sectionRef} id="usluge" className="relative py-12 md:py-20 overflow-hidden">
       <div className="absolute inset-0 bg-background" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div
           className={cn(
-            "max-w-3xl mb-5 transition-all duration-700",
+            "max-w-3xl mb-6 transition-all duration-700",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
         >
@@ -113,7 +113,7 @@ export function ServicesSection() {
             <span className="w-2 h-2 bg-primary rounded-full" />
             <span className="text-sm font-medium text-foreground/90">Usluge usmjerene na ishod</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-2 leading-[1.1]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-3 leading-[1.1]">
             {"Šta dobijate kada radimo mi"}
           </h2>
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
@@ -121,24 +121,24 @@ export function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-5 lg:gap-6">
-          <div className="grid sm:grid-cols-2 gap-3">
+        <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-5 lg:gap-6">
+          <div className="-mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-2 no-scrollbar sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0">
             {services.map((service, index) => (
               <button
                 key={service.title}
                 onClick={() => setActiveService(index)}
                 className={cn(
-                  "w-full group flex items-start gap-3 p-2.5 rounded-xl text-left transition-all duration-300",
+                  "w-full min-w-[82%] snap-start group flex items-start gap-3 rounded-2xl p-4 text-left transition-all duration-300 sm:min-w-0",
                   activeService === index
-                    ? "bg-card border border-border/70"
-                    : "hover:bg-card/50 border border-transparent",
+                    ? "bg-primary/10 border border-primary/45 shadow-[0_12px_35px_rgba(0,0,0,0.24)]"
+                    : "bg-card/55 hover:bg-card/80 border border-border/50",
                   isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8",
                 )}
                 style={{ transitionDelay: `${index * 50}ms` }}
               >
                 <div
                   className={cn(
-                    "flex-shrink-0 w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-300",
+                    "flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300",
                     activeService === index
                       ? "bg-secondary text-foreground"
                       : "bg-secondary text-muted-foreground group-hover:text-foreground",
@@ -147,15 +147,15 @@ export function ServicesSection() {
                   <service.icon className="w-5 h-5" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-[15px] font-semibold text-foreground mb-1 leading-snug">{service.title}</h3>
+                  <h3 className="text-base font-semibold text-foreground mb-1.5 leading-snug">{service.title}</h3>
                   <div className="space-y-1">
-                    <p className="text-[12px] text-foreground/70 leading-snug">
+                    <p className="text-[12px] sm:text-[13px] text-foreground/70 leading-snug">
                       <span className="text-foreground/80">Za koga:</span> {service.forWhom}
                     </p>
-                    <p className="text-[12px] text-foreground/70 leading-snug">
+                    <p className="text-[12px] sm:text-[13px] text-foreground/70 leading-snug">
                       <span className="text-foreground/80">Ishod:</span> {service.outcome}
                     </p>
-                    <p className="text-[12px] text-foreground/70 leading-snug">
+                    <p className="text-[12px] sm:text-[13px] text-foreground/70 leading-snug">
                       <span className="text-foreground/80">Rizik:</span> {service.riskReduced}
                     </p>
                   </div>
@@ -165,7 +165,7 @@ export function ServicesSection() {
           </div>
 
           <div className="relative lg:sticky lg:top-16 h-fit">
-            <div className="relative rounded-2xl overflow-hidden aspect-[3/2] border border-border/50 bg-card">
+            <div className="relative rounded-3xl overflow-hidden aspect-[4/5] sm:aspect-[3/2] border border-border/50 bg-card">
               {services.map((service, index) => (
                 <img
                   key={service.title}
@@ -179,11 +179,11 @@ export function ServicesSection() {
               ))}
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
 
-              <div className="absolute bottom-0 left-0 right-0 p-3">
-                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-1">
+              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                   {services[activeService].title}
                 </h3>
-                <div className="grid gap-1 text-[13px] text-foreground/70">
+                <div className="grid gap-1.5 text-sm text-foreground/70">
                   <div>
                     <span className="text-foreground/80 font-medium">Za koga:</span> {services[activeService].forWhom}
                   </div>
@@ -194,7 +194,7 @@ export function ServicesSection() {
                     <span className="text-foreground/80 font-medium">Rizik smanjujemo:</span> {services[activeService].riskReduced}
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-1.5 mt-2">
+                <div className="flex flex-wrap gap-1.5 mt-3">
                   {services[activeService].includes.map((item) => (
                     <span
                       key={item}
@@ -204,7 +204,7 @@ export function ServicesSection() {
                     </span>
                   ))}
                 </div>
-                <Button className="mt-2 h-9 px-4 text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-full" asChild>
+                <Button className="mt-3 h-11 w-full sm:w-auto px-5 text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-full" asChild>
                   <a href="#kontakt">
                     {siteConfig.primaryCtaText}
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
@@ -215,14 +215,14 @@ export function ServicesSection() {
           </div>
         </div>
 
-        <div className="mt-6 rounded-2xl border border-border/50 bg-card p-4">
-          <div className="flex items-center justify-between mb-2">
+        <div className="mt-6 rounded-3xl border border-border/50 bg-card/80 p-4">
+          <div className="flex items-start justify-between gap-3 mb-3">
             <h3 className="text-lg font-semibold text-foreground">Kako radimo</h3>
             <span className="text-[11px] text-muted-foreground">{"4 koraka, jedna kontakt tačka"}</span>
           </div>
-          <div className="grid md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-3">
             {processSteps.map((step, index) => (
-              <div key={step.title} className="rounded-xl bg-secondary/30 p-3">
+              <div key={step.title} className="rounded-2xl bg-secondary/30 p-3">
                 <div className="text-[11px] font-mono text-primary mb-1">0{index + 1}</div>
                 <div className="font-semibold text-foreground mb-1 text-sm">{step.title}</div>
                 <div className="text-[12px] text-muted-foreground leading-snug">{step.description}</div>

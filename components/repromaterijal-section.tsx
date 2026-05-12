@@ -2,12 +2,12 @@
 
 export function RepromaterijalSection() {
   return (
-    <section id="repromaterijal" className="relative py-14 md:py-20 overflow-hidden">
+    <section id="repromaterijal" className="relative py-12 md:py-20 overflow-hidden">
       <div className="absolute inset-0 bg-background" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.05),_transparent_55%)]" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-background/80 mb-3">
               <span className="w-2 h-2 bg-primary rounded-full" />
@@ -32,25 +32,25 @@ export function RepromaterijalSection() {
                 </div>
               ))}
             </div>
-            <div className="flex flex-wrap gap-3">
-              <div className="rounded-xl border border-border/50 bg-card/70 px-4 py-2">
+            <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:gap-3">
+              <div className="rounded-2xl border border-border/50 bg-card/70 px-3 sm:px-4 py-2">
                 <div className="text-xs text-muted-foreground">Od</div>
-                <div className="text-lg font-semibold text-foreground">1993.</div>
+                <div className="text-base sm:text-lg font-semibold text-foreground">1993.</div>
               </div>
-              <div className="rounded-xl border border-border/50 bg-card/70 px-4 py-2">
+              <div className="rounded-2xl border border-border/50 bg-card/70 px-3 sm:px-4 py-2">
                 <div className="text-xs text-muted-foreground">Fokus</div>
-                <div className="text-lg font-semibold text-foreground">Uredna izvedba</div>
+                <div className="text-sm sm:text-lg font-semibold text-foreground leading-tight">Uredna izvedba</div>
               </div>
-              <div className="rounded-xl border border-border/50 bg-card/70 px-4 py-2">
+              <div className="rounded-2xl border border-border/50 bg-card/70 px-3 sm:px-4 py-2">
                 <div className="text-xs text-muted-foreground">Utisak</div>
-                <div className="text-lg font-semibold text-foreground">Profesionalno</div>
+                <div className="text-sm sm:text-lg font-semibold text-foreground leading-tight">Profesionalno</div>
               </div>
             </div>
           </div>
 
           <div className="relative">
             <div className="absolute -inset-4 rounded-3xl bg-primary/10 blur-2xl" />
-            <div className="relative rounded-2xl border border-border/50 bg-card p-3 md:p-4 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+            <div className="relative rounded-3xl border border-border/50 bg-card p-3 md:p-4 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
               <img
                 src="/repromaterijal.png"
                 alt="Repromaterijal TENEX"

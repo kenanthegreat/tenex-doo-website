@@ -68,7 +68,7 @@ export function Navigation() {
   }
 
   return (
-    <header className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-500", isScrolled ? "py-3" : "py-5")}>
+    <header className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-500", isScrolled ? "py-2 md:py-3" : "py-3 md:py-5")}>
       <div
         className={cn(
           "absolute inset-0 transition-all duration-500 backdrop-blur-xl",
@@ -77,11 +77,13 @@ export function Navigation() {
       />
 
       <div className="container mx-auto px-4 md:px-8 relative">
-        <nav className="flex items-center justify-between gap-6">
-          <a href="#pocetna" onClick={handleNavClick("#pocetna")} className="group flex items-center gap-3">
-            <div className="relative w-24 h-24 rounded-2xl overflow-hidden bg-background/80 border border-border/50 transition-transform duration-300 group-hover:scale-105">
-              <img src="/2.5dlogo.png" alt="TENEX logo" className="w-full h-full object-cover" />
-            </div>
+        <nav className="flex items-center justify-between gap-3 md:gap-6">
+          <a href="#pocetna" onClick={handleNavClick("#pocetna")} className="group flex items-center gap-3 flex-shrink-0">
+            <img
+              src="/2.5dlogo.png"
+              alt="TENEX logo"
+              className="h-12 sm:h-14 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
             <div className="hidden sm:block">
               <span className="block text-lg font-bold tracking-tight text-foreground">TENEX</span>
               <span className="block text-[10px] text-muted-foreground tracking-[0.2em] uppercase font-mono">
@@ -136,7 +138,7 @@ export function Navigation() {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-foreground w-11 h-11 rounded-full"
+            className="lg:hidden text-foreground w-11 h-11 rounded-full border border-border/50 bg-secondary/30"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <div className="relative w-5 h-5">
@@ -165,10 +167,10 @@ export function Navigation() {
         <div
           className={cn(
             "lg:hidden overflow-hidden transition-all duration-500",
-            isMobileMenuOpen ? "max-h-[600px] opacity-100 mt-4" : "max-h-0 opacity-0",
+            isMobileMenuOpen ? "max-h-[600px] opacity-100 mt-3" : "max-h-0 opacity-0",
           )}
         >
-          <div className="p-4 rounded-2xl bg-background/95 border border-border/50">
+          <div className="p-3 rounded-3xl bg-background/95 border border-border/50 shadow-2xl shadow-black/40 backdrop-blur-2xl">
             <div className="flex flex-col gap-1">
               {navLinks.map((link, index) => (
                 <a
@@ -176,7 +178,7 @@ export function Navigation() {
                   href={link.href}
                   onClick={handleNavClick(link.href)}
                   className={cn(
-                    "px-4 py-3.5 text-foreground hover:bg-secondary/50 rounded-xl transition-all duration-300 flex items-center justify-between group whitespace-nowrap",
+                    "px-4 py-3 text-foreground hover:bg-secondary/50 rounded-2xl transition-all duration-300 flex items-center justify-between group whitespace-nowrap",
                     isMobileMenuOpen && "animate-slide-up",
                   )}
                   style={{ animationDelay: `${index * 0.05}s` }}

@@ -60,21 +60,21 @@ export function ContactSection() {
   }
 
   return (
-    <section ref={sectionRef} id="kontakt" className="relative py-14 md:py-20 overflow-hidden">
+    <section ref={sectionRef} id="kontakt" className="relative py-12 pb-36 md:py-20 overflow-hidden">
       <div className="absolute inset-0 bg-background" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div
           className={cn(
-            "text-center max-w-2xl mx-auto mb-4 transition-all duration-700",
+            "text-center max-w-2xl mx-auto mb-8 md:mb-10 transition-all duration-700",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-background/80 mb-3">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-background/80 mb-4">
             <span className="w-2 h-2 bg-primary rounded-full" />
             <span className="text-sm font-medium text-foreground/90">Ponuda i procjena</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-2 leading-[1.1]">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-3 leading-[1.15]">
             {"Pošaljite upit za brzu procjenu"}
           </h2>
           <p className="text-base md:text-lg text-muted-foreground">
@@ -82,15 +82,15 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-10">
           <div
             className={cn(
-              "bg-card rounded-2xl p-6 md:p-8 border border-border/50 transition-all duration-700",
+              "bg-card rounded-3xl p-5 sm:p-6 md:p-8 border border-border/50 transition-all duration-700",
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12",
             )}
           >
             <h3 className="text-xl font-bold text-foreground mb-1">{"Pošaljite upit"}</h3>
-            <p className="text-muted-foreground mb-5">{"Očekivani odgovor u roku od 24h"}</p>
+            <p className="text-muted-foreground mb-6">{"Očekivani odgovor u roku od 24h"}</p>
 
             {isSubmitted ? (
               <div className="flex flex-col items-center justify-center py-12 text-center animate-scale-in">
@@ -101,29 +101,29 @@ export function ContactSection() {
                 <p className="text-muted-foreground">{"Vaša poruka je uspješno poslana. Javit ćemo vam se uskoro."}</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-3">
-                <div className="grid sm:grid-cols-2 gap-3">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-1.5">Ime i prezime</label>
+                    <label className="block text-sm font-medium text-foreground mb-2">Ime i prezime</label>
                     <Input
                       placeholder={"Vaše ime"}
-                      className="bg-secondary/50 border-border/50 h-11 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                      className="bg-secondary/50 border-border/50 h-12 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-1.5">Telefon ili email</label>
+                    <label className="block text-sm font-medium text-foreground mb-2">Telefon ili email</label>
                     <Input
                       placeholder="+387 6X XXX XXX ili email"
-                      className="bg-secondary/50 border-border/50 h-11 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                      className="bg-secondary/50 border-border/50 h-12 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary"
                       required
                     />
                   </div>
                 </div>
-                <div className="grid sm:grid-cols-2 gap-3">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-1.5">Vrsta usluge</label>
-                    <select className="w-full h-11 px-3 bg-secondary/50 border border-border/50 rounded-xl text-foreground focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
+                    <label className="block text-sm font-medium text-foreground mb-2">Vrsta usluge</label>
+                    <select className="w-full h-12 px-3 bg-secondary/50 border border-border/50 rounded-xl text-foreground focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
                       <option value="">Odaberite uslugu</option>
                       <option value="iskopi">Iskopi i priprema terena</option>
                       <option value="prevoz">Prevoz materijala</option>
@@ -134,29 +134,29 @@ export function ContactSection() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-1.5">{"Lokacija gradilišta"}</label>
+                    <label className="block text-sm font-medium text-foreground mb-2">{"Lokacija gradilišta"}</label>
                     <Input
                       placeholder={"Sarajevo, općina"}
-                      className="bg-secondary/50 border-border/50 h-11 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                      className="bg-secondary/50 border-border/50 h-12 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Kratak opis</label>
+                  <label className="block text-sm font-medium text-foreground mb-2">Kratak opis</label>
                   <Textarea
                     placeholder={"Šta treba uraditi, okvirna količina, rok..."}
-                    className="bg-secondary/50 border-border/50 min-h-[96px] rounded-xl resize-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                    className="bg-secondary/50 border-border/50 min-h-[110px] rounded-xl resize-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
                   />
                 </div>
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 rounded-xl text-sm font-semibold"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-[52px] rounded-xl text-sm font-semibold"
                 >
                   <Send className="w-4 h-4 mr-2" />
                   {siteConfig.primaryCtaText}
                 </Button>
-                <div className="text-xs text-muted-foreground">
+                <div className="text-xs text-muted-foreground text-center">
                   Odgovor u roku od 24h. Bez spama i bez dijeljenja podataka.
                 </div>
               </form>
@@ -169,21 +169,21 @@ export function ContactSection() {
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12",
             )}
           >
-            <div className="grid sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {contactInfo.map((item, index) => (
                 <div
                   key={item.label}
                   className={cn(
-                    "p-5 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 group cursor-pointer",
+                    "p-4 md:p-5 rounded-3xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 group cursor-pointer",
                     isVisible && "animate-slide-up",
                   )}
                   style={{ animationDelay: `${index * 100 + 200}ms` }}
                 >
-                  <div className="w-10 h-10 bg-secondary/40 rounded-xl flex items-center justify-center mb-3 transition-all">
-                    <item.icon className="w-5 h-5 text-foreground/70" />
+                  <div className="w-9 h-9 md:w-10 md:h-10 bg-secondary/40 rounded-xl flex items-center justify-center mb-3 transition-all">
+                    <item.icon className="w-4 h-4 md:w-5 md:h-5 text-foreground/70" />
                   </div>
                   <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{item.label}</div>
-                  <div className="font-semibold text-foreground text-sm">{item.value}</div>
+                  <div className="font-semibold text-foreground text-sm leading-snug">{item.value}</div>
                   {item.href ? (
                     <a
                       href={item.href}
@@ -194,41 +194,41 @@ export function ContactSection() {
                       Otvori u mapama
                     </a>
                   ) : null}
-                  <div className="text-sm text-muted-foreground">{item.subvalue}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5 leading-snug">{item.subvalue}</div>
                 </div>
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
               <a
                 href={siteConfig.contact.phone.href}
-                className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-card px-3 py-1.5 text-sm text-foreground"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border/50 bg-card px-4 py-3 sm:py-2 text-sm font-medium text-foreground"
               >
                 <Phone className="w-4 h-4 text-foreground/70" />
                 Pozovi
               </a>
               <a
                 href={siteConfig.contact.email.href}
-                className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-card px-3 py-1.5 text-sm text-foreground"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border/50 bg-card px-4 py-3 sm:py-2 text-sm font-medium text-foreground"
               >
                 <Mail className="w-4 h-4 text-foreground/70" />
                 Email
               </a>
               <a
                 href={siteConfig.contact.whatsapp.href}
-                className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-card px-3 py-1.5 text-sm text-foreground"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border/50 bg-card px-4 py-3 sm:py-2 text-sm font-medium text-foreground"
               >
                 WhatsApp
               </a>
               <a
                 href={siteConfig.contact.viber.href}
-                className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-card px-3 py-1.5 text-sm text-foreground"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border/50 bg-card px-4 py-3 sm:py-2 text-sm font-medium text-foreground"
               >
                 Viber
               </a>
             </div>
 
-            <div className="relative rounded-2xl overflow-hidden aspect-[16/9] bg-card border border-border/50">
+            <div className="relative rounded-3xl overflow-hidden aspect-[4/3] sm:aspect-[16/9] bg-card border border-border/50">
               <iframe
                 title="TENEX lokacija"
                 src={siteConfig.contact.map?.embedSrc}

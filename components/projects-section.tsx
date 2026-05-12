@@ -52,13 +52,13 @@ export function ProjectsSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="projekti" className="relative py-14 md:py-20 overflow-hidden">
+    <section ref={sectionRef} id="projekti" className="relative py-12 md:py-20 overflow-hidden">
       <div className="absolute inset-0 bg-background" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div
           className={cn(
-            "max-w-3xl mb-5 transition-all duration-700",
+            "max-w-3xl mb-6 transition-all duration-700",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
         >
@@ -66,7 +66,7 @@ export function ProjectsSection() {
             <span className="w-2 h-2 bg-primary rounded-full" />
             <span className="text-sm font-medium text-foreground/90">Projekti</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-2 leading-[1.1]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-3 leading-[1.1]">
             {"Primjeri radova koje možemo pokazati"}
           </h2>
           <p className="text-base md:text-lg text-muted-foreground">
@@ -79,7 +79,7 @@ export function ProjectsSection() {
             <div
               key={project.title}
               className={cn(
-                "group relative rounded-2xl overflow-hidden bg-card aspect-[16/9] cursor-pointer transition-all duration-700",
+                "group relative rounded-3xl overflow-hidden bg-card aspect-[4/3] sm:aspect-[16/9] cursor-pointer transition-all duration-700",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
                 hoveredIndex === index && "scale-[1.01]",
               )}
@@ -101,7 +101,7 @@ export function ProjectsSection() {
                   "absolute inset-0 transition-all duration-500",
                   hoveredIndex === index
                     ? "bg-gradient-to-t from-background via-background/70 to-background/20"
-                    : "bg-gradient-to-t from-background/90 via-background/20 to-transparent",
+                    : "bg-gradient-to-t from-background/95 via-background/35 to-transparent",
                 )}
               />
 
@@ -112,12 +112,12 @@ export function ProjectsSection() {
                   </span>
                 </div>
 
-                <h3 className="text-lg md:text-xl font-bold text-foreground mb-1.5">{project.title}</h3>
+                <h3 className="text-xl md:text-xl font-bold text-foreground mb-2 leading-tight">{project.title}</h3>
 
                 <div
                   className={cn(
-                    "overflow-hidden transition-all duration-500",
-                    hoveredIndex === index ? "max-h-32 opacity-100" : "max-h-0 opacity-0",
+                    "overflow-hidden transition-all duration-500 max-h-32 opacity-100 md:max-h-0 md:opacity-0",
+                    hoveredIndex === index && "md:max-h-32 md:opacity-100",
                   )}
                 >
                   <p className="text-muted-foreground text-sm mb-2">{project.description}</p>

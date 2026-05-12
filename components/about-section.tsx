@@ -37,11 +37,11 @@ export function AboutSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="o-nama" className="relative py-14 md:py-20 overflow-hidden">
+    <section ref={sectionRef} id="o-nama" className="relative py-12 md:py-20 overflow-hidden">
       <div className="absolute inset-0 bg-background" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
           <div
             className={cn(
               "relative transition-all duration-700",
@@ -58,7 +58,7 @@ export function AboutSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
               </div>
 
-              <div className="absolute -bottom-4 -left-4 bg-card p-4 rounded-2xl border border-border/50 max-w-[220px]">
+              <div className="absolute -bottom-3 left-0 sm:-left-4 bg-card/95 p-4 rounded-2xl border border-border/50 max-w-[220px] shadow-2xl shadow-black/30">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                     <Award className="w-5 h-5 text-primary" />
@@ -73,7 +73,7 @@ export function AboutSection() {
                 </div>
               </div>
 
-              <div className="absolute -top-3 -right-3 w-28 h-28 rounded-2xl overflow-hidden border-4 border-background">
+              <div className="absolute -top-3 right-0 sm:-right-3 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-4 border-background shadow-2xl shadow-black/30">
                 <img src="/excavator-yellow-construction-machinery.jpg" alt="TENEX oprema" className="w-full h-full object-cover" />
               </div>
             </div>
@@ -102,7 +102,7 @@ export function AboutSection() {
               {"Kombinujemo modernu opremu, stručan kadar i jasnu organizaciju rada bez obzira na veličinu projekta."}
             </p>
 
-            <div className="grid grid-cols-3 gap-3 mb-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
               {values.map((value) => (
                 <div key={value.title} className="p-3 rounded-2xl bg-card/60 border border-border/50 text-center">
                   <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-2">
@@ -114,7 +114,7 @@ export function AboutSection() {
               ))}
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-2.5 mb-3">
+            <div className="grid sm:grid-cols-2 gap-2.5 mb-4">
               {highlights.map((item, index) => (
                 <div
                   key={item}
@@ -132,7 +132,7 @@ export function AboutSection() {
               ))}
             </div>
 
-            <div className="flex items-center gap-4 p-3 bg-card rounded-2xl border border-border/50">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 p-4 bg-card rounded-3xl border border-border/50">
               <div className="w-16 h-16 rounded-2xl overflow-hidden flex-shrink-0 ring-1 ring-border/60 bg-background">
                 <img src="/2.5dlogo.png" alt="TENEX logo" className="w-16 h-16 object-contain p-2" />
               </div>
@@ -140,7 +140,7 @@ export function AboutSection() {
                 <div className="font-semibold text-foreground text-base">Porodična firma od {siteConfig.foundedYear}.</div>
                 <div className="text-sm text-muted-foreground">Dugoročno povjerenje i odgovoran odnos.</div>
               </div>
-              <Button variant="outline" className="rounded-full bg-transparent">
+              <Button variant="outline" className="w-full sm:w-auto rounded-full bg-transparent">
                 {"Više o nama"}
               </Button>
             </div>

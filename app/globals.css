@@ -1217,3 +1217,35 @@ input,
 textarea {
   cursor: text;
 }
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  html {
+    scroll-padding-top: 88px;
+  }
+
+  .section-compact {
+    padding-bottom: 10rem;
+  }
+
+  .section-compact > section {
+    scroll-margin-top: 76px;
+  }
+
+  .section-compact > section:not(#pocetna) {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .section-compact > section#kontakt {
+    padding-bottom: 9.5rem !important;
+  }
+}
