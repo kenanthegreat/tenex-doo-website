@@ -10,10 +10,10 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 const siteUrl = "https://tenex-doo.vercel.app"
 
 export const metadata: Metadata = {
-  title: "TENEX d.o.o. | Niskogradnja Sarajevo",
+  title: "TENEX | Niskogradnja i iskopi Sarajevo",
   description:
-    "Niskogradnja, iskopi, prevoz i rušenja u Sarajevu i široj BiH. Jasni rokovi, sigurna izvedba i procjena u 24h.",
-  keywords: "niskogradnja, iskopi, prevoz, rušenja, Sarajevo, BiH, građevina, TENEX",
+    "Niskogradnja, iskopi, prevoz materijala i rušenja u Sarajevu i široj BiH. Pošaljite upit i očekujte odgovor u roku od 24h.",
+  keywords: ["niskogradnja Sarajevo", "iskopi Sarajevo", "rušenje objekata", "prevoz materijala", "uređenje terena", "TENEX"],
   metadataBase: new URL(siteUrl),
   alternates: {
     canonical: "/",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     apple: "/2.5dlogo.png",
   },
   openGraph: {
-    title: "TENEX d.o.o. | Niskogradnja Sarajevo",
+    title: "TENEX | Niskogradnja i iskopi Sarajevo",
     description: "Niskogradnja, iskopi, prevoz i rušenja u Sarajevu i široj BiH.",
     url: siteUrl,
     type: "website",
@@ -36,17 +36,16 @@ export const metadata: Metadata = {
         url: "/hero-demolition.jpg",
         width: 1200,
         height: 630,
-        alt: "TENEX d.o.o. | Niskogradnja Sarajevo",
+        alt: "TENEX niskogradnja i iskopi u Sarajevu",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TENEX d.o.o. | Niskogradnja Sarajevo",
+    title: "TENEX | Niskogradnja i iskopi Sarajevo",
     description: "Niskogradnja, iskopi, prevoz i rušenja u Sarajevu i široj BiH.",
     images: ["/hero-demolition.jpg"],
   },
-  generator: "v0.app",
 }
 
 export const viewport = {
@@ -66,7 +65,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
+              "@type": ["LocalBusiness", "GeneralContractor"],
               name: siteConfig.companyName,
               url: siteUrl,
               telephone: siteConfig.contact.phone.value,
@@ -79,6 +78,13 @@ export default function RootLayout({
                 addressRegion: "BiH",
               },
               logo: `${siteUrl}/2.5dlogo.png`,
+              foundingDate: String(siteConfig.foundedYear),
+              openingHours: "Mo-Fr 08:00-16:00",
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Usluge niskogradnje",
+                itemListElement: ["Iskopi i priprema terena", "Rušenje objekata", "Prevoz materijala", "Niskogradnja"].map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
+              },
             }),
           }}
         />

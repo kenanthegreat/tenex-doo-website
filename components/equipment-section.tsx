@@ -103,7 +103,7 @@ export function EquipmentSection() {
               <span className="text-primary">flota</span>
             </h2>
             <p className="text-sm md:text-base text-muted-foreground mt-2 max-w-md">
-              Lista opreme i broj mašina (dodati).
+              Mehanizacija za iskope, transport, nivelaciju i rad na zahtjevnim lokacijama.
             </p>
           </div>
 

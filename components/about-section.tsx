@@ -5,20 +5,21 @@ import { CheckCircle2, Award, Users, Target } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { siteConfig } from "@/lib/site-config"
+import Image from "next/image"
 
 const highlights = [
-  `Porodična firma sa tradicijom od ${siteConfig.foundedYear}.`,
-  "Vrhunska oprema i redovno održavanje",
-  "Licencirani i osigurani radnici",
-  "Poštivanje rokova i budžeta",
-  "Ekološki osviješteno poslovanje",
-  "Podrška klijentima tokom projekta",
+  `Iskustvo u niskogradnji od ${siteConfig.foundedYear}. godine`,
+  "Mehanizacija za različite obime radova",
+  "Jedna kontakt osoba od upita do završetka",
+  "Dogovoreni koraci prije početka radova",
+  "Rad na području Sarajeva i šire BiH",
+  "Uredna predaja lokacije po završetku",
 ]
 
 const values = [
-  { icon: Award, title: "Kvalitet", description: "Visoki standardi u industriji" },
-  { icon: Users, title: "Tim", description: "Iskusni profesionalci" },
-  { icon: Target, title: "Preciznost", description: "Svaki detalj je bitan" },
+  { icon: Award, title: "Odgovornost", description: "Jasan dogovor i obim radova" },
+  { icon: Users, title: "Komunikacija", description: "Jedna kontakt osoba" },
+  { icon: Target, title: "Kontrola", description: "Planirana izvedba na terenu" },
 ]
 
 export function AboutSection() {
@@ -50,10 +51,12 @@ export function AboutSection() {
           >
             <div className="relative aspect-[4/3] max-w-md mx-auto">
               <div className="absolute inset-6 rounded-3xl overflow-hidden border border-border/50">
-                <img
+                <Image
                   src="/aerial-construction-site-excavators-heavy-machiner.jpg"
                   alt="TENEX radovi"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 1024px) 80vw, 420px"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
               </div>
@@ -134,14 +137,14 @@ export function AboutSection() {
 
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 p-4 bg-card rounded-3xl border border-border/50">
               <div className="w-16 h-16 rounded-2xl overflow-hidden flex-shrink-0 ring-1 ring-border/60 bg-background">
-                <img src="/2.5dlogo.png" alt="TENEX logo" className="w-16 h-16 object-contain p-2" />
+                <Image src="/2.5dlogo.png" alt="TENEX logo" width={64} height={64} sizes="64px" className="h-16 w-16 object-contain p-2" />
               </div>
               <div className="flex-1">
                 <div className="font-semibold text-foreground text-base">Porodična firma od {siteConfig.foundedYear}.</div>
                 <div className="text-sm text-muted-foreground">Dugoročno povjerenje i odgovoran odnos.</div>
               </div>
-              <Button variant="outline" className="w-full sm:w-auto rounded-full bg-transparent">
-                {"Više o nama"}
+              <Button variant="outline" className="w-full sm:w-auto rounded-full bg-transparent" asChild>
+                <a href="#kontakt">Razgovarajmo o projektu</a>
               </Button>
             </div>
           </div>

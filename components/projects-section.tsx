@@ -3,37 +3,8 @@
 import { useState, useRef, useEffect } from "react"
 import { ArrowUpRight, MapPin } from "lucide-react"
 import { cn } from "@/lib/utils"
-
-const projects = [
-  {
-    title: "Miniranje i iskop za apartmane na Bjelašnici",
-    category: "Iskopi i miniranje",
-    location: "Bjelašnica",
-    description: "Priprema terena i iskop za temelje apartmanskih objekata.",
-    image: "/miniranje-iskop-bjelasnica.jpg",
-  },
-  {
-    title: "Čišćenje na hidrocentrali u Trnovu",
-    category: "Čišćenje terena",
-    location: "Trnovo",
-    description: "Uklanjanje materijala i uređenje radne zone.",
-    image: "/ciscenje-hidrocentrala-trnovo.jpg",
-  },
-  {
-    title: "Uređivanje lokacije za parking na Stupu",
-    category: "Uređenje terena",
-    location: "Stup, Sarajevo",
-    description: "Nivelacija i priprema površine za parking.",
-    image: "/uredjivanje-parking-stup.jpg",
-  },
-  {
-    title: "Iskop za stambeni objekat na Grbavici",
-    category: "Iskopi",
-    location: "Grbavica, Sarajevo",
-    description: "Iskop i priprema gradilišta za stambeni objekat.",
-    image: "/iskop-stambeni-grbavica.jpg",
-  },
-]
+import { projects } from "@/lib/content"
+import Image from "next/image"
 
 export function ProjectsSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
@@ -87,9 +58,11 @@ export function ProjectsSection() {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <img
+              <Image
                 src={project.image || "/placeholder.svg"}
                 alt={project.title}
+                fill
+                sizes="(max-width: 768px) 92vw, 50vw"
                 className={cn(
                   "w-full h-full object-cover transition-all duration-700",
                   hoveredIndex === index ? "scale-110 blur-[2px]" : "scale-100",
@@ -147,6 +120,12 @@ export function ProjectsSection() {
               />
             </div>
           ))}
+        </div>
+        <div className="mt-6 flex justify-center">
+          <a href="/projekti" className="inline-flex h-12 items-center gap-2 rounded-full border border-border/60 bg-card px-6 text-sm font-semibold text-foreground transition-colors hover:border-primary/50 hover:bg-secondary/60">
+            Pogledajte sve reference
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
         </div>
       </div>
     </section>

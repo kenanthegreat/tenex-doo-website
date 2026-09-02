@@ -5,24 +5,24 @@ import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { siteConfig } from "@/lib/site-config"
+import Image from "next/image"
 
 const footerLinks = {
   usluge: [
-    { label: "Iskopi", href: "#usluge" },
-    { label: "Prevozi", href: "#usluge" },
-    { label: "Rušenja", href: "#usluge" },
-    { label: "Niskogradnja", href: "#usluge" },
+    { label: "Iskopi", href: "/usluge/iskopi-sarajevo" },
+    { label: "Prevozi", href: "/usluge/prevoz-materijala" },
+    { label: "Rušenja", href: "/usluge/rusenje-objekata" },
+    { label: "Niskogradnja", href: "/usluge/niskogradnja-sarajevo" },
   ],
   kompanija: [
-    { label: "O nama", href: "#o-nama" },
-    { label: "Naša oprema", href: "#oprema" },
-    { label: "Projekti", href: "#projekti" },
-    { label: "Kontakt", href: "#kontakt" },
+    { label: "O nama", href: "/#o-nama" },
+    { label: "Naša oprema", href: "/#oprema" },
+    { label: "Projekti", href: "/projekti" },
+    { label: "Kontakt", href: "/#kontakt" },
   ],
   pravno: [
-    { label: "Politika privatnosti", href: "#" },
-    { label: "Uvjeti korištenja", href: "#" },
-    { label: "Licenca", href: "#" },
+    { label: "Politika privatnosti", href: "/politika-privatnosti" },
+    { label: "Uvjeti korištenja", href: "/uvjeti-koristenja" },
   ],
 }
 
@@ -85,9 +85,9 @@ export function Footer() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
             )}
           >
-            <a href="#pocetna" className="inline-flex items-center gap-3 mb-6 group">
+            <a href="/#pocetna" className="inline-flex items-center gap-3 mb-6 group">
               <div className="relative w-24 h-24 rounded-2xl overflow-hidden bg-background/80 border border-border/50 transition-transform group-hover:scale-105">
-                <img src="/2.5dlogo.png" alt="TENEX logo" className="w-full h-full object-cover" />
+                <Image src="/2.5dlogo.png" alt="TENEX logo" fill sizes="96px" className="object-cover" />
               </div>
               <div>
                 <span className="block text-xl font-bold text-foreground">TENEX</span>

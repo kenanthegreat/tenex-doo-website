@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "TENEX",
   city: "Sarajevo",
   foundedYear: 1993,
-  primaryCtaText: "Dobijte tačnu procjenu",
+  primaryCtaText: "Zatražite procjenu",
   serviceArea: "Kanton Sarajevo + šire područje BiH",
   contact: {
     phone: {
@@ -33,11 +33,6 @@ export const siteConfig = {
       href: "https://www.google.com/maps?q=Mustafe%20Behmena%206%2C%20Sarajevo%2C%20Novo%20Sarajevo",
       embedSrc: "https://www.google.com/maps?q=Mustafe%20Behmena%206%2C%20Sarajevo%2C%20Novo%20Sarajevo&output=embed",
     },
-  },
-  compliance: {
-    permits: "Dozvole (dodati)",
-    insurance: "Osiguranje (dodati)",
-    certifications: "Certifikati (dodati)",
   },
   showTestimonials: false,
   showLogos: false,

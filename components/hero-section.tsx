@@ -106,15 +106,12 @@ export function HeroSection() {
             <span className="text-sm font-medium text-foreground/90">Godina osnivanja {siteConfig.foundedYear}</span>
           </div>
 
-          <h1 className="mb-5 text-[2.85rem] sm:text-5xl md:text-7xl lg:text-[6.5rem] font-bold tracking-tight text-foreground leading-[1.05] md:leading-[1.1]">
-            {"Iskustvo koje traje od 1993."}
+          <h1 className="mb-5 max-w-4xl text-[2.65rem] sm:text-5xl md:text-6xl lg:text-[5.25rem] font-bold tracking-tight text-foreground leading-[1.04] md:leading-[1.06]">
+            Niskogradnja i iskopi u Sarajevu
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-7 sm:mb-9 leading-relaxed">
-            {"Jasna procjena, dogovoreni rokovi i sigurna izvedba bez skrivenih troškova."}
-            <span className="text-primary font-semibold">{" Iskopi, prevozi, rušenja"}</span>
-            {" i niskogradnja u Sarajevu i šire, uz tim koji preuzima odgovornost od početka do predaje terena."}
-            {" Radovi bagerom, rovokopač i kopanje terena."}
+            Pouzdana izvedba od {siteConfig.foundedYear}. godine. <span className="text-primary font-semibold">Iskopi, rušenja, prevoz materijala i uređenje terena</span> uz jasnu procjenu, dogovorene korake i jednu kontakt osobu.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3">

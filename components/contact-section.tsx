@@ -55,6 +55,16 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    const formData = new FormData(e.currentTarget as HTMLFormElement)
+    const message = [
+      "Pozdrav TENEX, želim procjenu projekta.",
+      `Ime: ${formData.get("name")}`,
+      `Kontakt: ${formData.get("contact")}`,
+      `Usluga: ${formData.get("service") || "Nije odabrano"}`,
+      `Lokacija: ${formData.get("location") || "Nije navedeno"}`,
+      `Opis: ${formData.get("description") || "Nije navedeno"}`,
+    ].join("\n")
+    window.open(`${siteConfig.contact.whatsapp.href}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
     setIsSubmitted(true)
     setTimeout(() => setIsSubmitted(false), 4000)
   }
@@ -97,8 +107,8 @@ export function ContactSection() {
                 <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4">
                   <CheckCircle className="w-8 h-8 text-green-500" />
                 </div>
-                <h4 className="text-xl font-semibold text-foreground mb-2">Hvala vam!</h4>
-                <p className="text-muted-foreground">{"Vaša poruka je uspješno poslana. Javit ćemo vam se uskoro."}</p>
+                <h4 className="text-xl font-semibold text-foreground mb-2">WhatsApp upit je pripremljen</h4>
+                <p className="text-muted-foreground">Provjerite poruku u WhatsAppu i pritisnite Pošalji.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -106,6 +116,7 @@ export function ContactSection() {
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">Ime i prezime</label>
                     <Input
+                      name="name"
                       placeholder={"Vaše ime"}
                       className="bg-secondary/50 border-border/50 h-12 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary"
                       required
@@ -114,6 +125,7 @@ export function ContactSection() {
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">Telefon ili email</label>
                     <Input
+                      name="contact"
                       placeholder="+387 6X XXX XXX ili email"
                       className="bg-secondary/50 border-border/50 h-12 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary"
                       required
@@ -123,7 +135,7 @@ export function ContactSection() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">Vrsta usluge</label>
-                    <select className="w-full h-12 px-3 bg-secondary/50 border border-border/50 rounded-xl text-foreground focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
+                    <select name="service" required className="w-full h-12 px-3 bg-secondary/50 border border-border/50 rounded-xl text-foreground focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
                       <option value="">Odaberite uslugu</option>
                       <option value="iskopi">Iskopi i priprema terena</option>
                       <option value="prevoz">Prevoz materijala</option>
@@ -136,6 +148,7 @@ export function ContactSection() {
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">{"Lokacija gradilišta"}</label>
                     <Input
+                      name="location"
                       placeholder={"Sarajevo, općina"}
                       className="bg-secondary/50 border-border/50 h-12 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary"
                     />
@@ -144,6 +157,7 @@ export function ContactSection() {
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Kratak opis</label>
                   <Textarea
+                    name="description"
                     placeholder={"Šta treba uraditi, okvirna količina, rok..."}
                     className="bg-secondary/50 border-border/50 min-h-[110px] rounded-xl resize-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
                   />
@@ -154,10 +168,10 @@ export function ContactSection() {
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-[52px] rounded-xl text-sm font-semibold"
                 >
                   <Send className="w-4 h-4 mr-2" />
-                  {siteConfig.primaryCtaText}
+                  Nastavite putem WhatsAppa
                 </Button>
                 <div className="text-xs text-muted-foreground text-center">
-                  Odgovor u roku od 24h. Bez spama i bez dijeljenja podataka.
+                  Podaci se ne spremaju na stranici. Prije slanja možete pregledati poruku.
                 </div>
               </form>
             )}

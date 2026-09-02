@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image"
+
 export function RepromaterijalSection() {
   return (
     <section id="repromaterijal" className="relative py-12 md:py-20 overflow-hidden">
@@ -11,13 +13,13 @@ export function RepromaterijalSection() {
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-background/80 mb-3">
               <span className="w-2 h-2 bg-primary rounded-full" />
-              <span className="text-sm font-medium text-foreground/90">Repromaterijal</span>
+              <span className="text-sm font-medium text-foreground/90">TENEX standard</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-2 leading-[1.1]">
-              Materijali koji predstavljaju naš kvalitet
+              Profesionalnost vidljiva i van gradilišta
             </h2>
             <p className="text-base md:text-lg text-muted-foreground mb-4">
-              Profesionalni promotivni materijali za partnere, događaje i gradilišta. Dosljedan vizuelni identitet, jasna poruka i uredna izvedba.
+              Od radne opreme do dokumentacije i signalizacije, dosljedan identitet prati način na koji pristupamo svakom projektu.
             </p>
             <div className="grid sm:grid-cols-2 gap-2.5 mb-4">
               {[
@@ -51,9 +53,12 @@ export function RepromaterijalSection() {
           <div className="relative">
             <div className="absolute -inset-4 rounded-3xl bg-primary/10 blur-2xl" />
             <div className="relative rounded-3xl border border-border/50 bg-card p-3 md:p-4 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
-              <img
+              <Image
                 src="/repromaterijal.png"
-                alt="Repromaterijal TENEX"
+                alt="TENEX brendirana radna oprema i promotivni materijali"
+                width={1200}
+                height={1200}
+                sizes="(max-width: 1024px) 92vw, 50vw"
                 className="w-full max-h-[55vh] object-contain"
               />
               <div className="absolute top-4 right-4 rounded-full border border-border/50 bg-background/80 px-3 py-1 text-xs text-foreground/80">

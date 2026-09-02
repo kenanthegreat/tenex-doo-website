@@ -1,0 +1,6 @@
+import type { Metadata } from "next"
+import { LegalPage } from "@/components/legal-page"
+import { siteConfig } from "@/lib/site-config"
+
+export const metadata: Metadata = { title: "Politika privatnosti | TENEX d.o.o.", alternates: { canonical: "/politika-privatnosti" } }
+export default function PrivacyPage() { return <LegalPage title="Politika privatnosti" intro="Kako TENEX postupa s podacima koje nam dobrovoljno pošaljete putem telefona, emaila ili kontakt upita."><section><h2>Podaci koje primamo</h2><p>Možemo primiti vaše ime, kontakt podatke, lokaciju gradilišta i opis projekta kada nam ih sami dostavite radi upita ili ponude.</p></section><section><h2>Svrha obrade</h2><p>Podatke koristimo isključivo za odgovor na upit, procjenu projekta, pripremu ponude i komunikaciju vezanu za dogovorene radove.</p></section><section><h2>Dijeljenje i čuvanje</h2><p>Podatke ne prodajemo. Pristup imaju samo osobe kojima su potrebni za obradu upita ili realizaciju dogovorene usluge, uz primjenu razumnih mjera zaštite.</p></section><section><h2>Vaša prava i kontakt</h2><p>Za pitanje, ispravku ili zahtjev za brisanje podataka kontaktirajte nas na <a className="text-primary underline" href={siteConfig.contact.email.href}>{siteConfig.contact.email.value}</a>.</p></section></LegalPage> }

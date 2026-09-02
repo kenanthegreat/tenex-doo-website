@@ -10,20 +10,14 @@ import { TestimonialsSection } from "@/components/testimonials-section"
 import { ProjectsSection } from "@/components/projects-section"
 import { StickyCTA } from "@/components/sticky-cta"
 import { SmoothScroll } from "@/components/smooth-scroll"
-import { LoadingScreen } from "@/components/loading-screen"
-import { ParticleField } from "@/components/particle-field"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { CTASection } from "@/components/cta-section"
-import { WebGLBackground } from "@/components/webgl-background"
 import { VideoHighlightsSection } from "@/components/video-highlights-section"
 import { RepromaterijalSection } from "@/components/repromaterijal-section"
 
 export default function Home() {
   return (
     <>
-      <LoadingScreen />
-      <WebGLBackground />
-      <ParticleField />
       <ScrollProgress />
       <SmoothScroll>
         <main className="relative overflow-hidden section-compact pb-40 md:pb-0">

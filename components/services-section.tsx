@@ -15,6 +15,7 @@ const services = [
     riskReduced: "Manje dodatnih iskopa i naknadnih troškova",
     includes: ["Iskop temelja", "Odvoz materijala", "Nivelacija terena", "Zaštita okolnog terena"],
     image: "/excavator-digging-construction-site-professional.jpg",
+    href: "/usluge/iskopi-sarajevo",
   },
   {
     icon: Truck,
@@ -24,6 +25,7 @@ const services = [
     riskReduced: "Smanjeni zastoji na gradilištu",
     includes: ["Dostava agregata", "Odvoz šuta", "Specijalni transport", "Usklađivanje termina"],
     image: "/dump-truck-construction-transporting-gravel.jpg",
+    href: "/usluge/prevoz-materijala",
   },
   {
     icon: Building2,
@@ -33,6 +35,7 @@ const services = [
     riskReduced: "Manji rizik za okolne objekte",
     includes: ["Plan rušenja", "Kontrolisano uklanjanje", "Sortiranje materijala", "Očišćenje terena"],
     image: "/controlled-demolition-heavy-machinery-building.jpg",
+    href: "/usluge/rusenje-objekata",
   },
   {
     icon: Shovel,
@@ -42,6 +45,7 @@ const services = [
     riskReduced: "Manje reklamacija nakon predaje",
     includes: ["Priprema podloge", "Ugradnja slojeva", "Odvodnja", "Finalno nivelisanje"],
     image: "/road-construction-asphalt-heavy-machinery.jpg",
+    href: "/usluge/niskogradnja-sarajevo",
   },
   {
     icon: Mountain,
@@ -51,6 +55,7 @@ const services = [
     riskReduced: "Smanjena erozija i slijeganje",
     includes: ["Nasipanje", "Zbijanje tla", "Drenaža", "Finalna nivelacija"],
     image: "/land-grading-bulldozer-terrain-preparation.jpg",
+    href: "/#kontakt",
   },
   {
     icon: Hammer,
@@ -60,6 +65,7 @@ const services = [
     riskReduced: "Manje zastoja zbog pristupa",
     includes: ["Mini mehanizacija", "Rad u uskim zonama", "Fazna izvedba", "Hitne intervencije"],
     image: "/specialized-construction-heavy-equipment.jpg",
+    href: "/#kontakt",
   },
 ]
 
@@ -205,8 +211,8 @@ export function ServicesSection() {
                   ))}
                 </div>
                 <Button className="mt-3 h-11 w-full sm:w-auto px-5 text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-full" asChild>
-                  <a href="#kontakt">
-                    {siteConfig.primaryCtaText}
+                  <a href={services[activeService].href}>
+                    {services[activeService].href.startsWith("/usluge") ? "Detalji usluge" : siteConfig.primaryCtaText}
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                   </a>
                 </Button>

@@ -7,10 +7,12 @@ import { cn } from "@/lib/utils"
 
 export function StickyCTA() {
   const [isContactVisible, setIsContactVisible] = useState(false)
+  const [isHeroVisible, setIsHeroVisible] = useState(true)
 
   useEffect(() => {
     const contact = document.getElementById("kontakt")
-    if (!contact) return
+    const hero = document.getElementById("pocetna")
+    if (!contact || !hero) return
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -20,14 +22,19 @@ export function StickyCTA() {
     )
 
     observer.observe(contact)
-    return () => observer.disconnect()
+    const heroObserver = new IntersectionObserver(([entry]) => setIsHeroVisible(entry.isIntersecting), { threshold: 0.15 })
+    heroObserver.observe(hero)
+    return () => {
+      observer.disconnect()
+      heroObserver.disconnect()
+    }
   }, [])
 
   return (
     <div
       className={cn(
         "fixed left-0 right-0 z-50 md:hidden pointer-events-none transition-all duration-300",
-        isContactVisible ? "translate-y-8 opacity-0" : "translate-y-0 opacity-100",
+        isContactVisible || isHeroVisible ? "translate-y-8 opacity-0" : "translate-y-0 opacity-100",
       )}
       style={{ bottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
     >

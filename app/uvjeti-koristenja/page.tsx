@@ -1,0 +1,6 @@
+import type { Metadata } from "next"
+import { LegalPage } from "@/components/legal-page"
+import { siteConfig } from "@/lib/site-config"
+
+export const metadata: Metadata = { title: "Uvjeti korištenja | TENEX d.o.o.", alternates: { canonical: "/uvjeti-koristenja" } }
+export default function TermsPage() { return <LegalPage title="Uvjeti korištenja" intro="Osnovni uvjeti za korištenje TENEX web stranice i informacija objavljenih na njoj."><section><h2>Informativna svrha</h2><p>Sadržaj stranice predstavlja opći pregled usluga i izvedenih radova. Konačan obim, cijena i rokovi utvrđuju se zasebnom ponudom nakon procjene projekta.</p></section><section><h2>Tačnost podataka</h2><p>Nastojimo održavati informacije tačnim i aktuelnim, ali fotografije i opisi ne predstavljaju automatsku garanciju identičnog rješenja za svaku lokaciju.</p></section><section><h2>Autorska prava</h2><p>Tekstovi, fotografije, logotip i drugi materijali na stranici ne mogu se koristiti u komercijalne svrhe bez prethodne saglasnosti TENEX d.o.o.</p></section><section><h2>Kontakt</h2><p>Za pitanja o stranici pišite na <a className="text-primary underline" href={siteConfig.contact.email.href}>{siteConfig.contact.email.value}</a>.</p></section></LegalPage> }
